@@ -1,4 +1,4 @@
-const API_BASE = "http://localhost:8081";
+const API_BASE = "https://springai-learning.onrender.com/";
 
 function authHeaders() {
   const token = localStorage.getItem("token");
