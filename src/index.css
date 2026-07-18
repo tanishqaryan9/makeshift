@@ -313,6 +313,7 @@ select.field { cursor: pointer; appearance: none; }
 .nav-icon.blue   { background: var(--blue);  }
 .nav-icon.yellow { background: var(--yellow); }
 .nav-icon.coral  { background: var(--coral); }
+.nav-icon.green  { background: var(--green); }
 .sidebar-nav button.active .nav-icon { background: var(--white); color: var(--text); }
 
 .sidebar-footer {
@@ -396,6 +397,7 @@ select.field { cursor: pointer; appearance: none; }
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: 16px;
   margin-bottom: 36px;
   background: var(--white);
@@ -583,6 +585,59 @@ select.field { cursor: pointer; appearance: none; }
 .chat-input-row .btn {
   flex-shrink: 0;
   height: 48px;
+}
+
+/* ── voice studio ───────────────────────────────────────────── */
+.mode-switch {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.mode-switch button {
+  padding: 9px 16px;
+  font-family: var(--font);
+  font-size: .85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--text);
+  background: var(--white);
+  border: var(--border-thick);
+  box-shadow: var(--shadow-hard);
+  cursor: pointer;
+  transition: all .1s;
+}
+.mode-switch button:hover {
+  background: var(--peach);
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--border);
+}
+.mode-switch button.active {
+  background: var(--green);
+  transform: translate(4px, 4px);
+  box-shadow: 0 0 0 var(--border);
+}
+
+.record-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.rec-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--text);
+  display: inline-block;
+  animation: pulse-dot .8s steps(2, end) infinite;
+}
+
+.audio-player {
+  width: 100%;
+  border: var(--border-thick);
+  box-shadow: var(--shadow-hard);
+  background: var(--white);
 }
 
 /* ── mobile toggle ──────────────────────────────────────────── */
