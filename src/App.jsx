@@ -4,10 +4,11 @@ import Login from "./components/Login";
 import PhotoGenerator from "./components/PhotoGenerator";
 import AIAssistant from "./components/AIAssistant";
 import RecipeGenerator from "./components/RecipeGenerator";
+import VoiceStudio from "./components/VoiceStudio";
 
 function Dashboard() {
   const { user, logout } = useAuth();
-  const [activeTool, setActiveTool] = useState("photo"); // "photo" | "chat" | "recipe"
+  const [activeTool, setActiveTool] = useState("photo");
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   // Close sidebar on tool change (for mobile layout)
@@ -67,6 +68,16 @@ function Dashboard() {
                 <span>Recipe Creator</span>
               </button>
             </li>
+            <li>
+              <button
+                type="button"
+                className={activeTool === "voice" ? "active" : ""}
+                onClick={() => selectTool("voice")}
+              >
+                <span className="nav-icon green">04</span>
+                <span>Voice Studio</span>
+              </button>
+            </li>
           </ul>
         </nav>
 
@@ -90,6 +101,7 @@ function Dashboard() {
         {activeTool === "photo" && <PhotoGenerator />}
         {activeTool === "chat" && <AIAssistant />}
         {activeTool === "recipe" && <RecipeGenerator />}
+        {activeTool === "voice" && <VoiceStudio />}
       </main>
     </div>
   );

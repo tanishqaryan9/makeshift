@@ -99,6 +99,10 @@ export default function Login() {
             <span className="swatch" style={{ background: "var(--coral)" }} />
             03 · Recipe Creator — turn ingredients into dinner
           </span>
+          <span className="tool-line">
+            <span className="swatch" style={{ background: "var(--green)" }} />
+            04 · Voice Studio — speak to it, or hear it speak
+          </span>
         </div>
 
         <span className="foot-note">© {new Date().getFullYear()} Makeshift. Built with Spring AI.</span>

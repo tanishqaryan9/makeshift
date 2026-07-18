@@ -68,3 +68,32 @@ export async function createRecipe(ingredients, cuisine, dietaryRestrictions) {
   if (!res.ok) throw new Error("Couldn't put a recipe together. Try again.");
   return res.text();
 }
+
+// ── Voice Studio: Speech → Text ─────────────────────────────────────────────
+
+export async function transcribeAudio(fileOrBlob) {
+  const formData = new FormData();
+  // Backend expects @RequestParam("file") MultipartFile — filename matters for content-type sniffing
+  const filename = fileOrBlob.name || "recording.webm";
+  formData.append("file", fileOrBlob, filename);
+
+  const res = await fetch(`${API_BASE}/ai/audio`, {
+    method: "POST",
+    headers: authHeaders(), // do NOT set Content-Type — browser sets the multipart boundary
+    body: formData,
+  });
+  if (!res.ok) throw new Error("Couldn't transcribe that audio. Try again.");
+  return res.text();
+}
+
+// ── Voice Studio: Text → Speech ─────────────────────────────────────────────
+
+export async function textToSpeech(text) {
+  const res = await fetch(
+    `${API_BASE}/ai/speak?text=${encodeURIComponent(text)}`,
+    { headers: authHeaders() }
+  );
+  if (!res.ok) throw new Error("Couldn't generate speech. Try again.");
+  const blob = await res.blob();
+  return URL.createObjectURL(blob);
+}
