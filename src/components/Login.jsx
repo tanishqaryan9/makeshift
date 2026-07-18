@@ -81,8 +81,8 @@ export default function Login() {
             Three small <span className="accent">AI tools</span>, thrown together.
           </h1>
           <p className="sub">
-            One account gets you a chat assistant, an image generator, and a recipe
-            builder — no separate sign-ups, no wasted tabs.
+            One account gets you a chat assistant, an image generator, recipe
+            builder, and a voice studio— no separate sign-ups, no wasted tabs.
           </p>
         </div>
 
