@@ -230,7 +230,7 @@ export default function Login() {
               <button
                 type="button"
                 className="oauth-btn"
-                onClick={() => window.location.href = "https://springai-learning.onrender.com/oauth2/authorization/google"}
+                onClick={() => window.location.href = "https://springai-learning-jprx.onrender.com/oauth2/authorization/google"}
               >
                 <svg viewBox="0 0 24 24">
                   <path d="M12.24 10.285V14.4h6.887c-.648 2.41-2.519 4.113-5.136 4.113-3.41 0-6.19-2.77-6.19-6.19 0-3.41 2.78-6.19 6.19-6.19 1.56 0 2.97.58 4.06 1.54l3.1-3.1C19.21 2.19 15.93 1 12.24 1 5.68 1 .5 6.18.5 12.75S5.68 24.5 12.24 24.5c5.67 0 10.6-3.9 11.8-9.3.24-1.09.34-2.18.34-3.28h-12.14z" />
