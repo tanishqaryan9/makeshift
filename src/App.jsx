@@ -5,6 +5,7 @@ import PhotoGenerator from "./components/PhotoGenerator";
 import AIAssistant from "./components/AIAssistant";
 import RecipeGenerator from "./components/RecipeGenerator";
 import VoiceStudio from "./components/VoiceStudio";
+import KnowledgeBase from "./components/KnowledgeBase";
 
 function Dashboard() {
   const { user, logout } = useAuth();
@@ -78,6 +79,16 @@ function Dashboard() {
                 <span>Voice Studio</span>
               </button>
             </li>
+            <li>
+              <button
+                type="button"
+                className={activeTool === "kb" ? "active" : ""}
+                onClick={() => selectTool("kb")}
+              >
+                <span className="nav-icon blue">05</span>
+                <span>Knowledge Base</span>
+              </button>
+            </li>
           </ul>
         </nav>
 
@@ -102,6 +113,7 @@ function Dashboard() {
         {activeTool === "chat" && <AIAssistant />}
         {activeTool === "recipe" && <RecipeGenerator />}
         {activeTool === "voice" && <VoiceStudio />}
+        {activeTool === "kb" && <KnowledgeBase />}
       </main>
     </div>
   );

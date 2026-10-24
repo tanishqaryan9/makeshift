@@ -719,3 +719,25 @@ select.field { cursor: pointer; appearance: none; }
     grid-template-columns: 1fr;
   }
 }
+
+.doc-list {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.doc-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 12px;
+  border: 2px solid var(--border);
+  background: var(--white);
+}
+.doc-list li span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

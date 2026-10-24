@@ -1,4 +1,4 @@
-const API_BASE = "https://springai-learning-jprx.onrender.com";
+const API_BASE = "https://springai-learning.onrender.com";
 
 function authHeaders() {
   const token = localStorage.getItem("token");
@@ -96,4 +96,42 @@ export async function textToSpeech(text) {
   if (!res.ok) throw new Error("Couldn't generate speech. Try again.");
   const blob = await res.blob();
   return URL.createObjectURL(blob);
+}
+
+// ── Knowledge Base (RAG) ──────────────────────────────────────────────────
+
+export async function uploadDocument(file) {
+  const fd = new FormData();
+  fd.append("file", file);
+  const res = await fetch(`${API_BASE}/ai/rag/documents`, {
+    method: "POST",
+    headers: authHeaders(), // no Content-Type, the browser sets the multipart boundary
+    body: fd,
+  });
+  if (!res.ok) throw new Error("Upload failed. Use a .pdf, .txt or .md file under 10 MB.");
+  return res.json();
+}
+
+export async function listDocuments() {
+  const res = await fetch(`${API_BASE}/ai/rag/documents`, { headers: authHeaders() });
+  if (!res.ok) throw new Error("Couldn't load your documents.");
+  return res.json();
+}
+
+export async function deleteDocument(id) {
+  const res = await fetch(`${API_BASE}/ai/rag/documents/${id}`, {
+    method: "DELETE",
+    headers: authHeaders(),
+  });
+  if (!res.ok) throw new Error("Couldn't delete that document.");
+}
+
+export async function askDocs(question) {
+  const res = await fetch(`${API_BASE}/ai/rag/ask`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", ...authHeaders() },
+    body: JSON.stringify({ question }),
+  });
+  if (!res.ok) throw new Error("Couldn't answer from your documents.");
+  return (await res.json()).answer;
 }
