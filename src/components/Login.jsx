@@ -78,11 +78,12 @@ export default function Login() {
 
         <div className="pitch">
           <h1>
-            Three small <span className="accent">AI tools</span>, thrown together.
+            Five small <span className="accent">AI tools</span>, thrown together.
           </h1>
           <p className="sub">
-            One account gets you a chat assistant, an image generator, recipe
-            builder, and a voice studio— no separate sign-ups, no wasted tabs.
+            One account gets you a chat assistant, an image generator, a recipe
+            builder, a voice studio, and a knowledge base for your own documents. No
+            separate sign-ups, no wasted tabs.
           </p>
         </div>
 
@@ -102,6 +103,10 @@ export default function Login() {
           <span className="tool-line">
             <span className="swatch" style={{ background: "var(--green)" }} />
             04 · Voice Studio — speak to it, or hear it speak
+          </span>
+          <span className="tool-line">
+            <span className="swatch" style={{ background: "var(--purple)" }} />
+            05 · Knowledge Base — upload a document, ask it questions
           </span>
         </div>
 
@@ -133,7 +138,7 @@ export default function Login() {
             <p className="lede">
               {isSignup
                 ? "Takes ten seconds. No email confirmation, no nonsense."
-                : "Pick up right where you left off with all three tools."}
+                : "Pick up right where you left off with all five tools."}
             </p>
 
             <form className="auth-form" onSubmit={handleSubmit}>

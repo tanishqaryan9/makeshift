@@ -314,6 +314,7 @@ select.field { cursor: pointer; appearance: none; }
 .nav-icon.yellow { background: var(--yellow); }
 .nav-icon.coral  { background: var(--coral); }
 .nav-icon.green  { background: var(--green); }
+.nav-icon.purple { background: var(--purple); }
 .sidebar-nav button.active .nav-icon { background: var(--white); color: var(--text); }
 
 .sidebar-footer {

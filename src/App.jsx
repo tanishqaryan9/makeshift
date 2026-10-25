@@ -85,7 +85,7 @@ function Dashboard() {
                 className={activeTool === "kb" ? "active" : ""}
                 onClick={() => selectTool("kb")}
               >
-                <span className="nav-icon blue">05</span>
+                <span className="nav-icon purple">05</span>
                 <span>Knowledge Base</span>
               </button>
             </li>
